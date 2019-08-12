@@ -21,7 +21,6 @@
             android:layout_height="wrap_content"
             app:srcCompat="@android:drawable/btn_star_big_on" android:contentDescription="@string/yellow_star"
             android:layout_margin="@dimen/layout_margin"/>
-    // Auto generated code
     <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent" style="@style/NameStyle">
