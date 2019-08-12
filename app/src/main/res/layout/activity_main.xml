@@ -6,7 +6,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".MainActivity">
+        tools:context=".MainActivity" android:paddingStart="@dimen/layout_padding"
+        android:paddingEnd="@dimen/layout_padding">
 
     <TextView
             android:text="@string/name"
@@ -14,4 +15,19 @@
             android:layout_height="wrap_content" android:id="@+id/name_text"
             android:textAlignment="center"
             style="@style/NameStyle"/>
+    <ImageView
+            android:id="@+id/star_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@android:drawable/btn_star_big_on" android:contentDescription="@string/yellow_star"
+            android:layout_margin="@dimen/layout_margin"/>
+    // Auto generated code
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" style="@style/NameStyle">
+        <TextView
+                android:text="@string/bio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/bio_text" android:lineSpacingMultiplier="1.2"/>
+    </ScrollView>
 </LinearLayout>
