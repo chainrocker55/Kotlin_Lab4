@@ -13,36 +13,37 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding=DataBindingUtil.setContentView(this,R.layout.activity_main)
-        binding.doneButton.setOnClickListener {
-            addNickname(it)
+        binding.apply {
+            doneButton.setOnClickListener {
+                addNickname(it)
+            }
+            nicknameText.setOnClickListener {
+                updateNickname(it)
+            }
         }
-        binding.nicknameText.setOnClickListener {
-            updateNickname(it)
-        }
-
-
     }
         private fun addNickname(view: View) {
-            val editText = binding.nicknameEdit
-            val nicknameTextView = binding.nicknameText
-            nicknameTextView.text = editText.text
-            editText.visibility = View.GONE
-            view.visibility = View.GONE
-            nicknameTextView.visibility = View.VISIBLE
+           binding.apply {
+               nicknameText.text = nicknameEdit.text
+               nicknameEdit.visibility = View.GONE
+               nicknameText.visibility = View.VISIBLE
+               doneButton.visibility = View.GONE
 
-
-            val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+               val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+               inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+           }
         }
         private fun updateNickname (view: View) {
-            val editText = binding.nicknameEdit
-            val doneButton = binding.doneButton
-            editText.visibility = View.VISIBLE
-            doneButton.visibility = View.VISIBLE
-            view.visibility = View.GONE
-            editText.requestFocus()
-            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            imm.showSoftInput(editText, 0)
+
+            binding.apply {
+                nicknameEdit.visibility = View.VISIBLE
+                nicknameText.visibility = View.GONE
+                doneButton.visibility = View.VISIBLE
+                nicknameEdit.requestFocus()
+
+                val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.showSoftInput(binding.nicknameEdit, 0)
+            }
 
         }
 
